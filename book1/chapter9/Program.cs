@@ -166,8 +166,7 @@ What is our most expensive product?
 
             Console.WriteLine ($@" 
             Partitioning Operations
-Store each number in the following List until a perfect square
-    is detected.
+Store each number in the following List until a perfect square is detected.
 ");
             List<int> wheresSquaredo = new List<int> () {
                 66,
@@ -186,6 +185,35 @@ Store each number in the following List until a perfect square
                 4,
                 68,
                 14
+            };
+
+            wheresSquaredo.ForEach (g => {
+                if (Math.Sqrt (g) % 1 == 0) {
+                    Console.WriteLine ($"{g.ToString()} = {Math.Sqrt(g)}");
+                }
+            });
+
+            Console.WriteLine ($@" 
+            Using Custom Types
+Build a collection of customers who are millionaires.
+");
+            public class Customer {
+                public string Name { get; set; }
+                public double Balance { get; set; }
+                public string Bank { get; set; }
+            };
+
+            List<Customer> customers = new List<Customer> () {
+                new Customer () { Name = "Bob Lesman", Balance = 80345.66, Bank = "FTB" },
+                new Customer () { Name = "Joe Landy", Balance = 9284756.21, Bank = "WF" },
+                new Customer () { Name = "Meg Ford", Balance = 487233.01, Bank = "BOA" },
+                new Customer () { Name = "Peg Vale", Balance = 7001449.92, Bank = "BOA" },
+                new Customer () { Name = "Mike Johnson", Balance = 790872.12, Bank = "WF" },
+                new Customer () { Name = "Les Paul", Balance = 8374892.54, Bank = "WF" },
+                new Customer () { Name = "Sid Crosby", Balance = 957436.39, Bank = "FTB" },
+                new Customer () { Name = "Sarah Ng", Balance = 56562389.85, Bank = "FTB" },
+                new Customer () { Name = "Tina Fey", Balance = 1000000.00, Bank = "CITI" },
+                new Customer () { Name = "Sid Brown", Balance = 49582.68, Bank = "CITI" }
             };
         }
     }
