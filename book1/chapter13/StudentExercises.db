@@ -1,0 +1,50 @@
+create table Cohort (
+	Id	integer not null primary key autoincrement,
+	Name	text not null
+);
+
+create table Exercise (
+	Id	integer not null primary key autoincrement,
+	Name	text not null,
+	Language text not null
+);
+
+create table Student (
+	Id	integer not null primary key autoincrement,
+	firstName text not null,
+	lastName text not null,
+	slackHandle text not null,
+	StudentCohort integer not null,
+	foreign key(StudentCohort) references Cohort(Id)
+);
+
+create table Instructor (
+	Id	integer not null primary key autoincrement,
+	firstName text not null,
+	lastName text not null,
+	slackHandle text not null,
+	InstructorCohort integer not null,
+	foreign key(InstructorCohort) references Cohort(Id)
+);
+
+insert into Cohort (Name) Values ('Cohort 27');
+insert into Cohort (Name) Values ('Cohort 28');
+insert into Cohort (Name) Values ('Cohort 29');
+
+insert into Exercise (Name, Language) Values ('FizzBuzzJS', 'JavaScript');
+insert into Exercise (Name, Language) Values ('FizzBuzzCSharp', 'C#');
+insert into Exercise (Name, Language) Values ('ChickenMonkeyJS', 'JavaScript');
+insert into Exercise (Name, Language) Values ('ChickenMonkeyCSharp', 'C#');
+insert into Exercise (Name, Language) Values ('Another1', 'Binary');
+insert into Exercise (Name, Language) Values ('Another2', 'Hieroglyphics');
+insert into Exercise (Name, Language) Values ('Another3', 'Hieroglyphics');
+
+insert into Instructor (firstName, lastName, slackHandle, InstructorCohort) Values ('Steve', 'Norris', '@coach', 1);
+insert into Instructor (firstName, lastName, slackHandle, InstructorCohort) Values ('Andy', 'Steve^2', '@coach^2', 2);
+insert into Instructor (firstName, lastName, slackHandle, InstructorCohort) Values ('Meg', 'Steve^3', '@jrcoach', 3);
+
+insert into Student (firstName, lastName, slackHandle, StudentCohort) Values ('Mike', 'Parrish', '@thatmikeparrish', 1);
+insert into Student (firstName, lastName, slackHandle, StudentCohort) Values ('Kayla', 'Carter', '@lilC', 2);
+insert into Student (firstName, lastName, slackHandle, StudentCohort) Values ('Chad', 'Taylor', '@chadilac', 2);
+insert into Student (firstName, lastName, slackHandle, StudentCohort) Values ('Josh', 'Perez', '@ohdang', 3);
+insert into Student (firstName, lastName, slackHandle, StudentCohort) Values ('Bill', 'Dollar', '@money', 1);
